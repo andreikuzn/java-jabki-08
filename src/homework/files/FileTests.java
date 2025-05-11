@@ -8,7 +8,7 @@ public class FileTests {
     @Test
     void textFileSizeTest() {
         TextFile textFile = new TextFile("document.txt", "Hello World!");
-        long expectedSize = "Hello World!".getBytes().length;
+        long expectedSize = "Hello World!".length();
         assertEquals(expectedSize, textFile.getSize());
     }
 
@@ -22,8 +22,8 @@ public class FileTests {
     @Test
     void calculateTotalSizeTest() {
         File[] files = new File[] {
-                new TextFile("file1.txt", "ABC"), // 3 bytes
-                new ImageFile("img.png", 10, 10, 1) // 100 bytes
+                new TextFile("file1.txt", "ABC"),
+                new ImageFile("img.png", 10, 10, 1)
         };
 
         long expectedTotal = 3 + 100;

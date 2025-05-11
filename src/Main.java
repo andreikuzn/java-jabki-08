@@ -142,6 +142,7 @@ public class Main {
 
         System.out.println();
 
+        // Файлы
         File[] files = new File[] {
                 new TextFile(" readme.txt ", "Пример текста"),
                 new ImageFile("photo.jpg", 800, 600, 3),
@@ -153,6 +154,7 @@ public class Main {
 
         System.out.println();
 
+        // Транспорт
         Transport[] participants = new Transport[] {
                 new Bicycle(25),
                 new Airplane(800)
@@ -162,6 +164,7 @@ public class Main {
 
         System.out.println();
 
+        // Сортировка
         Sortable[] people = {
                 new Person(25),
                 new Person(18),

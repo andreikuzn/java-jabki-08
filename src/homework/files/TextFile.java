@@ -13,6 +13,6 @@ public class TextFile extends File {
 
     @Override
     public long getSize() {
-        return content.getBytes().length;
+        return content.length();
     }
 }
