@@ -1,9 +1,26 @@
+import homework.files.File;
+import homework.files.FileUtils;
+import homework.files.ImageFile;
+import homework.files.TextFile;
+import homework.shapes.Circle;
+import homework.shapes.Rectangle;
+import homework.shapes.Shape;
+import homework.sortables.FileSize;
+import homework.sortables.Person;
+import homework.sortables.SortUtils;
+import homework.sortables.Sortable;
+import homework.sounds.*;
+import homework.transport.Airplane;
+import homework.transport.Bicycle;
+import homework.transport.RaceManager;
+import homework.transport.Transport;
 import workshop.payable.Playable;
 import workshop.payable.Song;
 import workshop.payment.CreditCardPayment;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -96,5 +113,74 @@ public class Main {
          * 4. Абстракция - работаем с сущностями через общие понятия, не детали
          * abstract class, interface
          */
+
+        /**
+         * ДЗ 8
+         */
+
+        // Фигуры
+        Shape[] shapes = new Shape[] {
+                new Circle(5.0),
+                new Rectangle(4.0, 6.0),
+                new Circle(3.2),
+                new Rectangle(2.5, 1.5)
+        };
+
+        for (Shape shape : shapes) {
+            shape.displayArea();
+        }
+
+        System.out.println();
+
+        // Звуки
+        SoundEmitter[] soundDevices = new SoundEmitter[] {
+                new Dog(),
+                new AlarmClock(),
+                new CarHorn()
+        };
+        SoundPlayer.playAllSounds(soundDevices);
+
+        System.out.println();
+
+        // Файлы
+        File[] files = new File[] {
+                new TextFile(" readme.txt ", "Пример текста"),
+                new ImageFile("photo.jpg", 800, 600, 3),
+                new TextFile("notes.txt", "Ещё один файл")
+        };
+
+        long totalSize = FileUtils.calculateTotalSize(files);
+        System.out.printf("Общий размер всех файлов: %s байт\n", totalSize);
+
+        System.out.println();
+
+        // Транспорт
+        Transport[] participants = new Transport[] {
+                new Bicycle(25),
+                new Airplane(800)
+        };
+
+        RaceManager.startRace(participants);
+
+        System.out.println();
+
+        // Сортировка
+        Sortable[] people = {
+                new Person(25),
+                new Person(18),
+                new Person(42)
+        };
+
+        Sortable[] file = {
+                new FileSize(1000),
+                new FileSize(300),
+                new FileSize(700)
+        };
+
+        SortUtils.sort(people);
+        SortUtils.sort(file);
+
+        System.out.println("Сортировка по возрасту: " + Arrays.toString(people));
+        System.out.println("Сортировка по размеру файла: " + Arrays.toString(file));
     }
 }
