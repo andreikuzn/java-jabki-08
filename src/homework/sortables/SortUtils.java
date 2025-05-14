@@ -2,7 +2,12 @@ package homework.sortables;
 
 import java.util.Arrays;
 
-public class SortUtils {
+public final class SortUtils {
+
+    private SortUtils() {
+        throw new UnsupportedOperationException("Утилитарный класс — нельзя создавать экземпляры.");
+    }
+
     public static void sort(Sortable[] array) {
         if (array == null) {
             throw new IllegalArgumentException("Массив не может возвращать null.");

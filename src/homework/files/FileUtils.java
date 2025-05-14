@@ -1,6 +1,11 @@
 package homework.files;
 
-public class FileUtils {
+public final class FileUtils {
+
+    private FileUtils() {
+        throw new UnsupportedOperationException("Утилитарный класс — нельзя создавать экземпляры.");
+    }
+
     public static long calculateTotalSize(File[] files) {
         if (files == null) {
             throw new IllegalArgumentException("Массив файлов не может быть пустым.");
